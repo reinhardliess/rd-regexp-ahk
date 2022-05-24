@@ -22,7 +22,7 @@ A class to manage regular expressions in Autohotkey.
 
 This class will always use [match objects](https://www.autohotkey.com/docs/commands/RegExMatch.htm#MatchObject), the flag `O)` will be added automatically.
 
-All methods have function comments and if you're looking for examples check out the [tests](link/to/Github).
+All methods have function comments and if you're looking for examples check out the [tests](https://github.com/reinhardliess/rd-regexp-ahk/blob/main/tests/all-tests.ahk).
 
 If you use the VS Code [AutoHotkey Plus Plus](https://marketplace.visualstudio.com/items?itemName=mark-wiemer.vscode-autohotkey-plus-plus) extension, you might also want to check out _Peak Definition_ (`Alt+F12`) or _Go To Definition_ (`F12`).
 

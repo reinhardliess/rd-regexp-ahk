@@ -1,0 +1,30 @@
+{
+  "name": "rd-regexp-ahk",
+  "version": "0.1.0",
+  "description": "A class to manage regular expressions in Autohotkey",
+  "main": "rd_RegExp.ahk",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reinhardliess/rd-regexp-ahk.git"
+  },
+  "keywords": [
+    "ahk",
+    "autohotkey",
+    "regex"
+  ],
+  "author": "Reinhard Liess",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reinhardliess/rd-regexp-ahk/issues"
+  },
+  "homepage": "https://github.com/reinhardliess/rd-regexp-ahk#readme",
+  "devDependencies": {
+    "unit-testing.ahk": "^0.6.1"
+  }
+}
