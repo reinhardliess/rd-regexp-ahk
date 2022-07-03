@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright(c) 2021 Reinhard Liess
+ * Copyright(c) 2021-2022 Reinhard Liess
  * MIT Licensed
 */
 
@@ -82,17 +82,45 @@ class rd_RegExp {
   }
 
   /**
-   * Retrieves the result of matching a string against a RegEx
-   * @param {string} haystack - text to search
-   * @param {string} regex - RegEx pattern
-   * @param {integer} [startingPos:=1] - text position to start searching
-   * @returns {Match | undefined} match object or undefined
+   * Match regex, internal
   */
-  match(haystack, regex, startingPos := 1) {
+  _match(haystack, regex, startingPos) {
     newRegex := this._buildRegex(regex)
     RegExMatch(haystack, newRegex, result, startingPos)
     this._processError(newRegex)
     return result
+  }
+
+  /**
+   * Retrieves the result of matching a string against a RegEx
+   * @param {string} haystack - text to search
+   * @param {string} regex - RegEx pattern
+   * @param {integer} [startingPos:=1] - text position to start searching
+   * @returns {object | undefined} match object or undefined
+  */
+  match(haystack, regex, startingPos := 1) {
+    return this._match(haystack, regex, startingPos)
+  }
+
+
+  /**
+  * For use with Boundfunc: Retrieves the result of matching a string against a RegEx
+  * @param {string} regex - RegEx pattern
+  * @param {string} haystack - text to search
+  * @returns {object | undefined} match object or undefined
+  */
+  matchB(regex, haystack) {
+    return this._match(haystack, regex, 1)
+  }
+
+  /**
+  * For use with Boundfunc: Retrieves the boolean result of matching a string against a RegEx
+  * @param {string} regex - RegEx pattern
+  * @param {string} haystack - text to search
+  * @returns {boolean} true if match
+  */
+  isMatchB(regex, haystack) {
+    return !!this.matchB(regex, haystack)
   }
 
   /**

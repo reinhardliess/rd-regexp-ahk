@@ -2,7 +2,7 @@
 #NoEnv
 ; #SingleInstance force
 #Warn All, OutputDebug
-; #Warn, UseUnsetLocal, Off
+#Warn, UseUnsetLocal, Off
 #NoTrayIcon
 
 SetWorkingDir, %A_ScriptDir%
@@ -27,8 +27,10 @@ test_regex()
 
 ; -End of tests --
 
-assert.fullReport()
+; assert.fullReport()
 assert.writeTestResultsToFile()
+FileRead, logFile, result.tests.log
+OutputDebug, % logFile
 
 ExitApp, % assert.failTotal
 
@@ -55,6 +57,15 @@ test_regex() {
   assert.label("RegEx match")
   match := R.match("test hello`nTest25", "m`n)^Test\d+")
   assert.test(match[0], "Test25")
+
+  assert.label("RegEx matchB")
+  match := R.matchB("m`n)^Test\d+", "test hello`nTest25")
+  assert.test(match[0], "Test25")
+
+  assert.label("RegEx isMatchB")
+  matched := R.isMatchB("m`n)^Test\d+", "test hello`nTest25")
+  ; assert.test(matched, true)
+  assert.true(matched)
 
   assert.label("RegEx matchall")
   matches := R.matchAll("test1 hello`nTest25", "im`n)^not-found\d+")
