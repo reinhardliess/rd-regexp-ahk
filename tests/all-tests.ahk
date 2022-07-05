@@ -89,6 +89,11 @@ test_regex() {
   newStr := R.replace("Lara Croft", "(?<firstname>\w+) (?<lastname>\w+)", func("fn_Rx2"))
   assert.test(newStr, "Croft, Lara")
 
+  assert.label("RegEx replaceB")
+  newStr := R.replaceB("abc(.*)123", "aaa$1zzz", "abcXYZ123")
+  assert.test(newStr, "aaaXYZzzz")
+
+
 }
 
 fn_Rx1(match, haystack) {

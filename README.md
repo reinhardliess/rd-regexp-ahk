@@ -30,15 +30,16 @@ This class will throw an exception in case of a serious error by default which w
 
 ### Methods
 
-| Method         | Description                                                                           |
-| -------------- | ------------------------------------------------------------------------------------- |
-| setPcreOptions | Sets PCRE options to be auto-generated                                                |
-| getPcreOptions | Gets PCRE options                                                                     |
-| splitRegex     | Splits RegEx pattern into flags/pattern                                               |
-| match          | Retrieves the result of matching a string against a RegEx                             |
-| matchB         | For Boundfunc: Retrieves the result of matching a string against a RegEx               |
-| IsMatchB       | For Boundfunc: Retrieves the _boolean_ result of matching a string against a RegEx      |
-| matchAll       | retrieves all the results of matching a string against a RegEx                        |
-| filterAll      | Filters array of match objects by group                                               |
-| replace        | Replaces occurrences of a RegEx inside a string, optionally using a callback function |
-| escapeString   | Escapes RegEx string                                                                  |
+| Method         | Description                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------------- |
+| setPcreOptions | Sets PCRE options to be auto-generated                                                               |
+| getPcreOptions | Gets PCRE options                                                                                    |
+| splitRegex     | Splits RegEx pattern into flags/pattern                                                              |
+| match          | Retrieves the result of matching a string against a RegEx                                            |
+| matchB         | For Boundfunc: Retrieves the result of matching a string against a RegEx                             |
+| IsMatchB       | For Boundfunc: Retrieves the _boolean_ result of matching a string against a RegEx                   |
+| matchAll       | retrieves all the results of matching a string against a RegEx                                       |
+| filterAll      | Filters array of match objects by group                                                              |
+| replace        | Replaces occurrences of a RegEx inside a string, optionally using a callback function                |
+| replaceB       | For Boundfunc: Replaces occurrences of a RegEx inside a string, optionally using a callback function |
+| escapeString   | Escapes RegEx string                                                                                 |

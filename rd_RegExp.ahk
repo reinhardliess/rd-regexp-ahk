@@ -165,18 +165,11 @@ class rd_RegExp {
     return filtered
   }
 
+
   /**
-   * Replaces occurrences of a pattern (regular expression) inside a string
-   * @param {string} haystack - string to be searched
-   * @param {string} regex - RegEx pattern
-   * @param {string | function} replacement - string to be substituted or callback
-   * @param {&integer} [outputCount] - number of substitutions
-   * @param {integer} [limit=-1] - max number of substitutions
-   * @param {integer} [startPos=1] - start position for searching
-   * @returns {string} string with substitutions
-   *
+   * Replace - internal
   */
-  replace(haystack, regex, replacement :="", byRef outputCount:="", limit := -1, startPos := 1) {
+  _replace(haystack, regex, replacement :="", byRef outputCount:="", limit := -1, startPos := 1) {
     newRegex := this._buildRegex(regex)
     if (!isObject(replacement)) {
       newStr := RegExReplace(haystack, newRegex, replacement, outputCount, limit, startPos)
@@ -204,6 +197,25 @@ class rd_RegExp {
     }
 
     return newStr
+  }
+
+    /**
+   * Replaces occurrences of a pattern (regular expression) inside a string
+   * @param {string} haystack - string to be searched
+   * @param {string} regex - RegEx pattern
+   * @param {string | function} replacement - string to be substituted or callback
+   * @param {&integer} [outputCount] - number of substitutions
+   * @param {integer} [limit=-1] - max number of substitutions
+   * @param {integer} [startPos=1] - start position for searching
+   * @returns {string} string with substitutions
+   *
+  */
+  replace(haystack, regex, replacement :="", byRef outputCount := "", limit := -1, startPos := 1) {
+    return this._replace(haystack, regex, replacement, outputCount, limit, startPos)
+  }
+
+  replaceB(regex, replacement, haystack) {
+    return this._replace(haystack, regex, replacement)
   }
 
   /**
