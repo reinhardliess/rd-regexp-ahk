@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 <!-- markdownlint-disable MD024 -->
 
+## [0.2.0] - 2022-07-05
+
+### Added
+
+- Methods: matchB, isMatchB, replaceB for boundfunc usage
+
 ## [0.1.2] - 2022-05-25
 
 ### Added

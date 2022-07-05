@@ -2,7 +2,7 @@
 #NoEnv
 ; #SingleInstance force
 #Warn All, OutputDebug
-; #Warn, UseUnsetLocal, Off
+#Warn, UseUnsetLocal, Off
 #NoTrayIcon
 
 SetWorkingDir, %A_ScriptDir%
@@ -27,8 +27,10 @@ test_regex()
 
 ; -End of tests --
 
-assert.fullReport()
+; assert.fullReport()
 assert.writeTestResultsToFile()
+FileRead, logFile, result.tests.log
+OutputDebug, % logFile
 
 ExitApp, % assert.failTotal
 
@@ -56,6 +58,15 @@ test_regex() {
   match := R.match("test hello`nTest25", "m`n)^Test\d+")
   assert.test(match[0], "Test25")
 
+  assert.label("RegEx matchB")
+  match := R.matchB("m`n)^Test\d+", "test hello`nTest25")
+  assert.test(match[0], "Test25")
+
+  assert.label("RegEx isMatchB")
+  matched := R.isMatchB("m`n)^Test\d+", "test hello`nTest25")
+  ; assert.test(matched, true)
+  assert.true(matched)
+
   assert.label("RegEx matchall")
   matches := R.matchAll("test1 hello`nTest25", "im`n)^not-found\d+")
   assert.test(R.filterAll(matches, 0), "")
@@ -77,6 +88,11 @@ test_regex() {
 
   newStr := R.replace("Lara Croft", "(?<firstname>\w+) (?<lastname>\w+)", func("fn_Rx2"))
   assert.test(newStr, "Croft, Lara")
+
+  assert.label("RegEx replaceB")
+  newStr := R.replaceB("abc(.*)123", "aaa$1zzz", "abcXYZ123")
+  assert.test(newStr, "aaaXYZzzz")
+
 
 }
 
