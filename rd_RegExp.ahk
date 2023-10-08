@@ -142,10 +142,10 @@ class rd_RegExp {
         break
       }
       matches.Push(result)
-      if (matches.Length() = limit) {
+      startingPos := result.Pos[0] + result.Len[0]
+      if (matches.Length() = limit || startingPos > Strlen(haystack)) {
         break
       }
-      startingPos := result.Pos[0] + result.Len[0]
     }
     return matches
   }

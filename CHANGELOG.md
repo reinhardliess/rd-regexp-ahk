@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 <!-- markdownlint-disable MD024 -->
 
+## [0.3.0] - 2023-10-08
+
+### Fixed
+
+- fixed `matchAll()` loop exit condition that under certain conditions could create an infinite loop
+
 ## [0.2.0] - 2022-07-05
 
 ### Added
