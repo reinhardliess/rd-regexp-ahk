@@ -1,6 +1,6 @@
 {
   "name": "rd-regexp-ahk",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A class to manage regular expressions in Autohotkey",
   "main": "rd_RegExp.ahk",
   "directories": {
